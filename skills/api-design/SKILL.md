@@ -3,7 +3,7 @@ name: api-design
 description: Design and review REST APIs — resource naming, status codes, pagination, filtering, response envelopes, OpenAPI contracts, and rate limiting.
 ---
 
-# REST API Design
+# REST API Design 
 
 Inspect the project's existing router, response helper, validation middleware, and OpenAPI conventions first (e.g., `.agent/rules/api-design.md` if present).
 
