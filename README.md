@@ -6,7 +6,7 @@ Single Source of Truth (SSOT) for global instructions, progressive-disclosure sk
 
 ### Option A: One-Line Terminal Command
 ```bash
-git clone <your-private-repo-url> ~/.agents
+git clone https://github.com/Kavi-200312/coding-agents-config.git ~/.agents
 node ~/.agents/sync.mjs          # Interactive: asks which AI tool(s) to backup & link
 # OR
 node ~/.agents/sync.mjs devin    # Backup & link only Devin
