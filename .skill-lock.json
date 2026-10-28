@@ -1,0 +1,24 @@
+{
+  "version": 3,
+  "skills": {
+    "code-review-testing": {
+      "source": "openai/codex",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/openai/codex.git",
+      "skillPath": ".codex/skills/code-review-testing/SKILL.md",
+      "skillFolderHash": "8c4b626bf548044bf84dc9f012510467ffdc4cda",
+      "installedAt": "2026-08-20T07:22:10.912Z",
+      "updatedAt": "2026-08-20T07:22:10.912Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "76a98a285cb0434f3d39e1a873823556330e398b",
+      "installedAt": "2026-08-20T07:24:21.973Z",
+      "updatedAt": "2026-08-20T07:24:21.973Z"
+    }
+  },
+  "dismissed": {}
+}
