@@ -1,46 +1,39 @@
-# Global Engineering Rules (Single Source of Truth)
+# Global Engineering Standards (Single Source of Truth)
 
-## 1. Workspace Safety & Scanning Discipline
-1. **Respect `.gitignore`:** Never scan or index ignored directories (especially `node_modules`, `dist`, build caches).
-2. **No Blind Recursive Scans:** Never run deep recursive searches (`grep -R` or `ls -R`) across workspace roots or large trees.
-3. **Nested Project Guard:** Treat nested backup/sub-repo folders as black holes unless explicitly instructed to enter them.
-4. **Targeted Discovery:** List top-level directories or consult project index files (`AGENTS.md`, `.agent/INDEX.md`) first; read only files required for the active task.
-
-## 2. Engineering Stance & Caveman Communication (Always Active)
+## 1. Engineering Stance & Caveman Communication
 - **Correctness Over Agreement:** Challenge flawed assumptions, point out hidden bugs/race conditions, and propose cleaner alternatives with concrete trade-offs. Never guess when schema or requirements are ambiguous.
-- **Caveman Terseness:** Drop pleasantries ("Sure!", "I'd be happy to..."), hedging, and filler ("basically", "actually", "just", "simply"). Lead with the root cause, diff, or decision.
-- **Full Technical Fidelity:** Keep exact file paths, symbol names, types, commands, SQL/code blocks, and error messages intact.
-- **Safety Pause:** Expand into explicit warnings before any destructive operation (data loss, `DROP`/`TRUNCATE`, force-push).
+- **Caveman Terseness:** Drop pleasantries ("Sure!", "I'd be happy to..."), hedging, and filler. Lead directly with the root cause, diff, or decision.
+- **Technical Fidelity:** Keep exact file paths, symbol names, types, commands, SQL/code blocks, and error messages intact.
+- **Explicit Safety Pause:** Expand into clear warnings before any destructive operation (data loss, `DROP`/`TRUNCATE`, force-push).
 
-## 3. Ponytail & Anti-AI-Slop Craftsmanship (Always Active)
-Before writing code, climb the Ponytail ladder:
-1. **YAGNI:** Does this need to exist? Cut unrequested abstractions, extension points, and boilerplate.
-2. **Reuse First:** Search existing services, repositories, helpers, and DTOs before creating new ones.
-3. **Stdlib First:** Prefer native language/platform capabilities and installed packages over new dependencies.
-4. **Root-Cause Minimal Diff:** Fix the shared root cause once rather than patching symptoms across callers.
-5. **Step-by-Step Pipeline Orchestration:** Never write 80+ line monolithic methods mixing diffing, validation, mapping, DB writes, and side effects. Structure complex workflows as numbered 4–5 step pipelines:
-   ```typescript
-   // Step 1: Detect changed records (diff against locked rows)
-   // Step 2: Validate business and domain references
-   // Step 3: Prepare typed update payloads (pure transformation)
-   // Step 4: Atomically persist database updates and snapshots
-   // Step 5: Emit audit log entries (outside transaction)
-   ```
-6. **Decomposed Rule Checkers & Pure Helpers:** Break nested `if` validation chains into single-responsibility rule checkers. Isolate pure data shaping from transactional I/O. Extract IDs/maps in a single pass.
+## 2. Checkpointed Phase Execution (Zero Context Loss)
+- **Plan First:** On non-trivial features or refactors (>2 files), produce a bite-sized plan with checkable items (`writing-plans`).
+- **Batch Execution (1-2 Tasks Only):** Never implement an entire multi-task plan in one unverified turn. Follow `executing-plans`: implement 1-2 tasks, verify them, and check off the completed items.
+- **Fidelity Check:** Before declaring work complete, compare the original plan requirements against the actual `git diff` to confirm zero omitted requirements or forgotten edge cases.
 
-## 4. Universal Architecture, Errors & Security
-- **Strict Layering:** `Controller → Service → Repository → Database`. Never reverse.
-  - **Controllers:** HTTP parsing and response formatting only.
-  - **Services:** Business rules, orchestration, and short transactions (no HTTP/audit/logging inside transactions).
+## 3. Anti-Slop Code Quality (10+ Senior Standards)
+- **Reuse First (Search Before Authoring):** Never generate new helper functions, queries, or DTOs without grepping the module and shared directories first. Extend or import existing code.
+- **No God Methods (<60 LOC Cap):** Monolithic functions mixing diffing, validation, persistence, and side effects are banned. Complex workflows must follow a numbered 5-step pipeline:
+  ```typescript
+  // Step 1: Detect changed records (diff against locked rows)
+  // Step 2: Validate business and domain references
+  // Step 3: Prepare typed update payloads (pure transformation)
+  // Step 4: Atomically persist database updates (short transaction)
+  // Step 5: Emit audit/event logs (outside transaction)
+  ```
+- **Centralized Constants:** Never inline repeated string literals, status codes, magic numbers, or error strings. Place them in dedicated `*.constants.ts` or enums.
+- **High-Signal Comments:** Ban obvious comments (`// assign x`). Comment only the *why*: concurrency constraints, transaction boundaries, business invariants, or race condition mitigations.
+- **Ponytail YAGNI Ladder:** Stop at the first rung that holds: YAGNI -> Reuse Existing -> Stdlib -> Single Function -> Clean Minimal Diff.
+
+## 4. Universal Architecture & Security
+- **Strict Layering:** `Controller/Interface -> Service/Domain -> Repository/Data Access -> Database`. Never reverse.
+  - **Controllers:** Boundary input parsing and HTTP response formatting only.
+  - **Services:** Business logic and orchestration only. Keep transactions short; no network calls or external logging inside transactions.
   - **Repositories:** Parameterized persistence queries only; no business validation.
-- **Type Safety:** Strict TypeScript — no `any` (use `unknown` + narrowing), explicit return types on exported functions, immutable by default.
-- **Domain Errors:** Custom error classes only — never raw `throw new Error()`. User-facing messages use `Name(id)` format (e.g., `Mentor Kavi(55) was not found.`) and never leak internal stack traces or SQL details.
-- **Security:** Default-deny. Enforce authentication, RBAC scope checks, boundary input validation (Zod), secret redaction in logs, and parameterized queries on every route.
+- **Type Safety:** Strict TypeScript — avoid `any` (use `unknown` with type narrowing), explicit return types on public boundaries, immutable by default.
+- **Domain Errors:** Dedicated custom error classes only. User-facing messages use `Name(id)` format and never leak SQL or stack traces.
+- **Date/Time Precision:** Always use UTC for database writes and timestamp calculations (`DateUtils.nowUtc()`). Never rely on server timezone.
 
-## 5. Context Precedence & On-Demand Skills
-1. **Precedence:** Project-level `AGENTS.md` and `.agent/` rules override global defaults when repository conventions differ.
-2. **Progressive Disclosure:** Global skills live in `C:/Users/Kaviyarasu/.agents/skills/<skill>/SKILL.md`. Each `SKILL.md` contains the compact core workflow and routes to `references/` inside the same folder for deep templates/examples — load `references/` only when needed.
-
-## 6. Verification & Blocking Gates
-- **Verification:** Run build/typecheck (`npx tsc --noEmit` or `npm run build`) and lint (`npx eslint` / `npm run lint`) when code logic changes; run relevant tests when behavior changes. Stop once clean — never loop redundant checks.
-- **Blocking Gates:** Never execute `git commit`, `git push`, `git merge`, `git rebase`, or schema migrations (`npm run db:migrate`) without explicit per-instance user approval.
+## 5. Verification & Completion Gate
+- **Evidence Before Assertions:** Never claim a task is complete, fixed, or passing without executing the verification command (`npm run build`, `npm test`, or typecheck) and inspecting the output (`verification-before-completion`).
+- **Diff Self-Review:** Inspect `git diff` before committing (`requesting-code-review`) to verify zero slop, no unused imports, and no broken abstractions.

@@ -1,165 +1,158 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "1.0.0",
-  "description": "Declarative path registry for cross-agent SSOT synchronization. Edit paths here if any AI tool changes its config location in future versions.",
-  "sources": {
-    "instructions": "AGENTS.md",
-    "skills": "skills",
-    "agents": "agents"
-  },
-  "tools": {
-    "antigravity": {
-      "displayName": "Google Antigravity (Gemini)",
-      "detectDirs": {
-        "win32": "{HOME}/.gemini",
-        "darwin": "{HOME}/.gemini",
-        "linux": "{HOME}/.gemini"
-      },
-      "links": [
-        {
-          "id": "global-instructions",
-          "source": "AGENTS.md",
-          "type": "file",
-          "target": {
-            "win32": "{HOME}/.gemini/GEMINI.md",
-            "darwin": "{HOME}/.gemini/GEMINI.md",
-            "linux": "{HOME}/.gemini/GEMINI.md"
-          },
-          "legacyTargets": []
-        },
-        {
-          "id": "skills",
-          "source": "skills",
-          "type": "directory",
-          "target": {
-            "win32": "{HOME}/.gemini/config/skills",
-            "darwin": "{HOME}/.gemini/config/skills",
-            "linux": "{HOME}/.gemini/config/skills"
-          },
-          "legacyTargets": [
-            "{HOME}/.gemini/antigravity/skills"
-          ]
-        }
-      ]
-    },
-    "devin": {
-      "displayName": "Devin CLI",
-      "detectDirs": {
-        "win32": "{APPDATA}/devin",
-        "darwin": "{HOME}/.config/devin",
-        "linux": "{HOME}/.config/devin"
-      },
-      "links": [
-        {
-          "id": "global-instructions",
-          "source": "AGENTS.md",
-          "type": "file",
-          "target": {
-            "win32": "{APPDATA}/devin/AGENTS.md",
-            "darwin": "{HOME}/.config/devin/AGENTS.md",
-            "linux": "{HOME}/.config/devin/AGENTS.md"
-          },
-          "legacyTargets": []
-        },
-        {
-          "id": "skills",
-          "source": "skills",
-          "type": "directory",
-          "target": {
-            "win32": "{APPDATA}/devin/skills",
-            "darwin": "{HOME}/.config/devin/skills",
-            "linux": "{HOME}/.config/devin/skills"
-          },
-          "legacyTargets": []
-        },
-        {
-          "id": "agents",
-          "source": "agents",
-          "type": "directory",
-          "target": {
-            "win32": "{APPDATA}/devin/agents",
-            "darwin": "{HOME}/.config/devin/agents",
-            "linux": "{HOME}/.config/devin/agents"
-          },
-          "legacyTargets": []
-        }
-      ]
-    },
-    "codex": {
-      "displayName": "OpenAI Codex CLI",
-      "detectDirs": {
-        "win32": "{HOME}/.codex",
-        "darwin": "{HOME}/.codex",
-        "linux": "{HOME}/.codex"
-      },
-      "links": [
-        {
-          "id": "global-instructions",
-          "source": "AGENTS.md",
-          "type": "file",
-          "target": {
-            "win32": "{HOME}/.codex/AGENTS.md",
-            "darwin": "{HOME}/.codex/AGENTS.md",
-            "linux": "{HOME}/.codex/AGENTS.md"
-          },
-          "legacyTargets": []
-        },
-        {
-          "id": "skills",
-          "source": "skills",
-          "type": "children",
-          "preserveChildren": [".system"],
-          "target": {
-            "win32": "{HOME}/.codex/skills",
-            "darwin": "{HOME}/.codex/skills",
-            "linux": "{HOME}/.codex/skills"
-          },
-          "legacyTargets": []
-        }
-      ]
-    },
-    "claude": {
-      "displayName": "Claude Code",
-      "detectDirs": {
-        "win32": "{HOME}/.claude",
-        "darwin": "{HOME}/.claude",
-        "linux": "{HOME}/.claude"
-      },
-      "links": [
-        {
-          "id": "global-instructions",
-          "source": "AGENTS.md",
-          "type": "file",
-          "target": {
-            "win32": "{HOME}/.claude/CLAUDE.md",
-            "darwin": "{HOME}/.claude/CLAUDE.md",
-            "linux": "{HOME}/.claude/CLAUDE.md"
-          },
-          "legacyTargets": []
-        },
-        {
-          "id": "skills",
-          "source": "skills",
-          "type": "directory",
-          "target": {
-            "win32": "{HOME}/.claude/skills",
-            "darwin": "{HOME}/.claude/skills",
-            "linux": "{HOME}/.claude/skills"
-          },
-          "legacyTargets": []
-        },
-        {
-          "id": "agents",
-          "source": "agents",
-          "type": "directory",
-          "target": {
-            "win32": "{HOME}/.claude/agents",
-            "darwin": "{HOME}/.claude/agents",
-            "linux": "{HOME}/.claude/agents"
-          },
-          "legacyTargets": []
-        }
-      ]
-    }
-  }
+    "$schema":  "https://json-schema.org/draft/2020-12/schema",
+    "version":  "1.0.0",
+    "description":  "Declarative path registry for cross-agent SSOT synchronization. Edit paths here if any AI tool changes its config location in future versions.",
+    "sources":  {
+                    "instructions":  "AGENTS.md",
+                    "skills":  "skills"
+                },
+    "tools":  {
+                  "antigravity":  {
+                                      "displayName":  "Google Antigravity (Gemini)",
+                                      "detectDirs":  {
+                                                         "win32":  "{HOME}/.gemini",
+                                                         "darwin":  "{HOME}/.gemini",
+                                                         "linux":  "{HOME}/.gemini"
+                                                     },
+                                      "links":  [
+                                                    {
+                                                        "id":  "global-instructions",
+                                                        "source":  "AGENTS.md",
+                                                        "type":  "file",
+                                                        "target":  {
+                                                                       "win32":  "{HOME}/.gemini/GEMINI.md",
+                                                                       "darwin":  "{HOME}/.gemini/GEMINI.md",
+                                                                       "linux":  "{HOME}/.gemini/GEMINI.md"
+                                                                   },
+                                                        "legacyTargets":  [
+
+                                                                          ]
+                                                    },
+                                                    {
+                                                        "id":  "skills",
+                                                        "source":  "skills",
+                                                        "type":  "directory",
+                                                        "target":  {
+                                                                       "win32":  "{HOME}/.gemini/config/skills",
+                                                                       "darwin":  "{HOME}/.gemini/config/skills",
+                                                                       "linux":  "{HOME}/.gemini/config/skills"
+                                                                   },
+                                                        "legacyTargets":  [
+                                                                              "{HOME}/.gemini/antigravity/skills"
+                                                                          ]
+                                                    }
+                                                ]
+                                  },
+                  "devin":  {
+                                "displayName":  "Devin CLI",
+                                "detectDirs":  {
+                                                   "win32":  "{APPDATA}/devin",
+                                                   "darwin":  "{HOME}/.config/devin",
+                                                   "linux":  "{HOME}/.config/devin"
+                                               },
+                                "links":  [
+                                              {
+                                                  "id":  "global-instructions",
+                                                  "source":  "AGENTS.md",
+                                                  "type":  "file",
+                                                  "target":  {
+                                                                 "win32":  "{APPDATA}/devin/AGENTS.md",
+                                                                 "darwin":  "{HOME}/.config/devin/AGENTS.md",
+                                                                 "linux":  "{HOME}/.config/devin/AGENTS.md"
+                                                             },
+                                                  "legacyTargets":  [
+
+                                                                    ]
+                                              },
+                                              {
+                                                  "id":  "skills",
+                                                  "source":  "skills",
+                                                  "type":  "directory",
+                                                  "target":  {
+                                                                 "win32":  "{APPDATA}/devin/skills",
+                                                                 "darwin":  "{HOME}/.config/devin/skills",
+                                                                 "linux":  "{HOME}/.config/devin/skills"
+                                                             },
+                                                  "legacyTargets":  [
+
+                                                                    ]
+                                              }
+                                          ]
+                            },
+                  "codex":  {
+                                "displayName":  "OpenAI Codex CLI",
+                                "detectDirs":  {
+                                                   "win32":  "{HOME}/.codex",
+                                                   "darwin":  "{HOME}/.codex",
+                                                   "linux":  "{HOME}/.codex"
+                                               },
+                                "links":  [
+                                              {
+                                                  "id":  "global-instructions",
+                                                  "source":  "AGENTS.md",
+                                                  "type":  "file",
+                                                  "target":  {
+                                                                 "win32":  "{HOME}/.codex/AGENTS.md",
+                                                                 "darwin":  "{HOME}/.codex/AGENTS.md",
+                                                                 "linux":  "{HOME}/.codex/AGENTS.md"
+                                                             },
+                                                  "legacyTargets":  [
+
+                                                                    ]
+                                              },
+                                              {
+                                                  "id":  "skills",
+                                                  "source":  "skills",
+                                                  "type":  "children",
+                                                  "preserveChildren":  [
+                                                                           ".system"
+                                                                       ],
+                                                  "target":  {
+                                                                 "win32":  "{HOME}/.codex/skills",
+                                                                 "darwin":  "{HOME}/.codex/skills",
+                                                                 "linux":  "{HOME}/.codex/skills"
+                                                             },
+                                                  "legacyTargets":  [
+
+                                                                    ]
+                                              }
+                                          ]
+                            },
+                  "claude":  {
+                                 "displayName":  "Claude Code",
+                                 "detectDirs":  {
+                                                    "win32":  "{HOME}/.claude",
+                                                    "darwin":  "{HOME}/.claude",
+                                                    "linux":  "{HOME}/.claude"
+                                                },
+                                 "links":  [
+                                               {
+                                                   "id":  "global-instructions",
+                                                   "source":  "AGENTS.md",
+                                                   "type":  "file",
+                                                   "target":  {
+                                                                  "win32":  "{HOME}/.claude/CLAUDE.md",
+                                                                  "darwin":  "{HOME}/.claude/CLAUDE.md",
+                                                                  "linux":  "{HOME}/.claude/CLAUDE.md"
+                                                              },
+                                                   "legacyTargets":  [
+
+                                                                     ]
+                                               },
+                                               {
+                                                   "id":  "skills",
+                                                   "source":  "skills",
+                                                   "type":  "directory",
+                                                   "target":  {
+                                                                  "win32":  "{HOME}/.claude/skills",
+                                                                  "darwin":  "{HOME}/.claude/skills",
+                                                                  "linux":  "{HOME}/.claude/skills"
+                                                              },
+                                                   "legacyTargets":  [
+
+                                                                     ]
+                                               }
+                                           ]
+                             }
+              }
 }

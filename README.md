@@ -25,54 +25,54 @@ The agent will inspect your machine, ask which tool(s) you want to link (e.g. `d
 ## Architecture
 
 ```text
-C:\Users\Kaviyarasu\.agents\
-├── AGENTS.md                 # Canonical Global Instructions (hardlinked to all tools)
-├── BOOTSTRAP.md              # AI-Agent interactive setup playbook for new machines
-├── agents.manifest.json      # Future-proof OS path registry (win32 / darwin / linux)
-├── sync.mjs                  # Zero-dependency CLI & interactive backup/link engine
-├── README.md                 # Hub architecture & synchronization guide
-├── .gitignore                # Excludes local backup archives (_archive/)
-├── skills/                   # 21 Progressive-Disclosure Skills (SKILL.md + references/)
-│   ├── api-design/
-│   ├── api-tester/
-│   ├── architecture-decision-records/
-│   ├── backend-patterns/
-│   ├── caveman/
-│   ├── code-review/
-│   ├── context-handoff/
-│   ├── database-patterns/
-│   ├── documentation-lookup/
-│   ├── error-handling/
-│   ├── frontend-patterns/
-│   ├── git-workflow/
-│   ├── implementer/
-│   ├── input-validation/
-│   ├── logging-observability/
-│   ├── orchestrate/
-│   ├── ponytail/
-│   ├── security-review/
-│   ├── senior-planner/
-│   ├── tdd-workflow/
-│   └── tickets/
-└── agents/                   # 8 Subagent Profiles (4 Core + 4 Conditional Specialists)
-    ├── feature-orchestrator/ # Stage 0: Triage & Pipeline Coordinator
-    ├── architect/            # Stage 1: Discovery + Planning + Architecture Design
-    ├── implementer/          # Stage 2: Production Code + Build Verification
-    ├── code-reviewer/        # Stage 3: Correctness + Architecture + Ponytail Review
-    ├── security-reviewer/    # Specialist: Auth, RBAC, OWASP Top 10
-    ├── tester/               # Specialist: Unit/Integration Tests & Edge Cases
-    ├── refactor-cleaner/     # Specialist: Dead Code, DRY, Complexity Reduction
-    └── doc-updater/          # Specialist: OpenAPI, ADRs, Module Digests
+~/.agents/
+â”œâ”€â”€ AGENTS.md                 # Canonical Global Instructions (hardlinked to all tools)
+â”œâ”€â”€ BOOTSTRAP.md              # AI-Agent interactive setup playbook for new machines
+â”œâ”€â”€ agents.manifest.json      # Future-proof OS path registry (win32 / darwin / linux)
+â”œâ”€â”€ sync.mjs                  # Zero-dependency CLI & interactive backup/link engine
+â”œâ”€â”€ README.md                 # Hub architecture & synchronization guide
+â”œâ”€â”€ .gitignore                # Excludes local backup archives (_archive/)
+â”œâ”€â”€ skills/                   # 21 Progressive-Disclosure Skills (SKILL.md + references/)
+â”‚   â”œâ”€â”€ api-design/
+â”‚   â”œâ”€â”€ api-tester/
+â”‚   â”œâ”€â”€ architecture-decision-records/
+â”‚   â”œâ”€â”€ backend-patterns/
+â”‚   â”œâ”€â”€ caveman/
+â”‚   â”œâ”€â”€ code-review/
+â”‚   â”œâ”€â”€ context-handoff/
+â”‚   â”œâ”€â”€ database-patterns/
+â”‚   â”œâ”€â”€ documentation-lookup/
+â”‚   â”œâ”€â”€ error-handling/
+â”‚   â”œâ”€â”€ frontend-patterns/
+â”‚   â”œâ”€â”€ git-workflow/
+â”‚   â”œâ”€â”€ implementer/
+â”‚   â”œâ”€â”€ input-validation/
+â”‚   â”œâ”€â”€ logging-observability/
+â”‚   â”œâ”€â”€ orchestrate/
+â”‚   â”œâ”€â”€ ponytail/
+â”‚   â”œâ”€â”€ security-review/
+â”‚   â”œâ”€â”€ senior-planner/
+â”‚   â”œâ”€â”€ tdd-workflow/
+â”‚   â””â”€â”€ tickets/
+â””â”€â”€ agents/                   # 8 Subagent Profiles (4 Core + 4 Conditional Specialists)
+    â”œâ”€â”€ feature-orchestrator/ # Stage 0: Triage & Pipeline Coordinator
+    â”œâ”€â”€ architect/            # Stage 1: Discovery + Planning + Architecture Design
+    â”œâ”€â”€ implementer/          # Stage 2: Production Code + Build Verification
+    â”œâ”€â”€ code-reviewer/        # Stage 3: Correctness + Architecture + Ponytail Review
+    â”œâ”€â”€ security-reviewer/    # Specialist: Auth, RBAC, OWASP Top 10
+    â”œâ”€â”€ tester/               # Specialist: Unit/Integration Tests & Edge Cases
+    â”œâ”€â”€ refactor-cleaner/     # Specialist: Dead Code, DRY, Complexity Reduction
+    â””â”€â”€ doc-updater/          # Specialist: OpenAPI, ADRs, Module Digests
 ```
 
 ## Cross-Agent Link Topology (Zero Drift)
 
 | Tool | Global Instructions (Hardlink) | Skills (Junction / Symlink) | Subagents (Junction / Symlink) |
 |---|---|---|---|
-| **Antigravity** | `~/.gemini/GEMINI.md` → `~/.agents/AGENTS.md` | `~/.gemini/config/skills` → `~/.agents/skills` | Built-in `invoke_subagent` + `orchestrate` skill |
-| **Devin** | `%APPDATA%\devin\AGENTS.md` → `~/.agents/AGENTS.md` | `%APPDATA%\devin\skills` → `~/.agents/skills` | `%APPDATA%\devin\agents` → `~/.agents/agents` |
-| **Codex** | `~/.codex/AGENTS.md` → `~/.agents/AGENTS.md` | `~/.codex/skills/<skill>` → `~/.agents/skills/<skill>` | Uses `AGENTS.md` + skills |
-| **Claude Code** | `~/.claude/CLAUDE.md` → `~/.agents/AGENTS.md` | `~/.claude/skills` → `~/.agents/skills` | `~/.claude/agents` → `~/.agents/agents` |
+| **Antigravity** | `~/.gemini/GEMINI.md` â†’ `~/.agents/AGENTS.md` | `~/.gemini/config/skills` â†’ `~/.agents/skills` | Built-in `invoke_subagent` + `orchestrate` skill |
+| **Devin** | `%APPDATA%\devin\AGENTS.md` â†’ `~/.agents/AGENTS.md` | `%APPDATA%\devin\skills` â†’ `~/.agents/skills` | `%APPDATA%\devin\agents` â†’ `~/.agents/agents` |
+| **Codex** | `~/.codex/AGENTS.md` â†’ `~/.agents/AGENTS.md` | `~/.codex/skills/<skill>` â†’ `~/.agents/skills/<skill>` | Uses `AGENTS.md` + skills |
+| **Claude Code** | `~/.claude/CLAUDE.md` â†’ `~/.agents/AGENTS.md` | `~/.claude/skills` â†’ `~/.agents/skills` | `~/.claude/agents` â†’ `~/.agents/agents` |
 
 ## What If a Tool Changes Its Path in the Future?
 
