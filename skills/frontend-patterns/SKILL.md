@@ -14,6 +14,6 @@ Use when building, refactoring, or reviewing React/Next.js components, hooks, fo
 4. **Semantic HTML & Accessibility (WCAG AA):** Use native `<button>`, `<label htmlFor>`, `<dialog>`, and landmark elements before reaching for ARIA. Ensure full keyboard navigation (`Tab`, `Enter`, `Escape`, focus trapping in modals/drawers) and associate form errors via `aria-describedby` + `aria-invalid`.
 
 ## Deep Reference (Load On Demand)
-- React 18/19 & Next.js patterns: `C:/Users/Kaviyarasu/.agents/skills/frontend-patterns/references/react-and-architecture.md`
-- Vercel 70+ React performance rules: `C:/Users/Kaviyarasu/.agents/skills/frontend-patterns/references/react-performance.md`
-- WCAG & ARIA accessibility checklist: `C:/Users/Kaviyarasu/.agents/skills/frontend-patterns/references/accessibility.md`
+- React 18/19 & Next.js patterns: `references/react-and-architecture.md`
+- Vercel 70+ React performance rules: `references/react-performance.md`
+- WCAG & ARIA accessibility checklist: `references/accessibility.md`

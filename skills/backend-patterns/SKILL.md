@@ -1,6 +1,6 @@
 ---
 name: backend-patterns
-description: Node.js/Express/TypeScript backend architecture — Controller-Service-Repository layering, 5-step service pipelines, DI composition root, transactions, and caching.
+description: Node.js/Express/TypeScript backend architecture  -  Controller-Service-Repository layering, 5-step service pipelines, DI composition root, transactions, and caching.
 ---
 
 # Backend Architecture Patterns
@@ -8,7 +8,7 @@ description: Node.js/Express/TypeScript backend architecture — Controller-Serv
 Check project-specific rules (`.agent/rules/code-standards.md`, `.agent/rules/architecture.md`) first when present.
 
 ## Core Rules
-1. **Strict Layering (`Controller → Service → Repository → DB`):**
+1. **Strict Layering (`Controller  ->  Service  ->  Repository  ->  DB`):**
    - **Controllers:** Arrow-property HTTP handlers; parse `req`, call service, return `sendSuccess`. Zero business logic.
    - **Services:** Business rules, cross-module coordination (via injected services/adapters), and short transactions.
    - **Repositories:** Parameterized Kysely/SQL queries only. Accept optional `trx?: Transaction<DB>`.
@@ -22,4 +22,4 @@ Check project-specific rules (`.agent/rules/code-standards.md`, `.agent/rules/ar
 3. **DI Composition Root:** Construct repositories, services, and controllers once in the composition root / module factory. Never `new` services inside route files.
 
 ## Deep Reference (Load On Demand)
-- Full code templates for Repository/Service layers, Redis caching, rate limiting, background queues, and retry patterns: `C:/Users/Kaviyarasu/.agents/skills/backend-patterns/references/detailed-guide.md`
+- Full code templates for Repository/Service layers, Redis caching, rate limiting, background queues, and retry patterns: `references/detailed-guide.md`

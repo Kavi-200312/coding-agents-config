@@ -14,10 +14,10 @@ Create crisp, manager- and QA-readable Zoho Sprint tickets grounded in actual co
    - Inspect the target module's routes, controller, service, repository, schema, types, permissions, and migrations. Split into independent, rollback-safe deliverable tickets.
 
 ## Formatting Rules
-- Concise, factual engineering prose — zero marketing fluff, zero repetition across sections.
+- Concise, factual engineering prose  -  zero marketing fluff, zero repetition across sections.
 - Group related changes into coherent feature bullets (preserve exact endpoints, status codes, table/column names, error classes, and RBAC permissions).
 - Include **Story Points** with a 1-line justification by default. Omit Branch/Commit/PR lines unless explicitly requested.
 - Include concrete **QA Verification Scenarios** (happy path, validation failures, permission/scope checks, edge cases).
 
 ## Deep Reference (Load On Demand)
-- Full Zoho Sprint ticket templates, split rules, and complete examples for Git Mode and Module Mode: `C:/Users/Kaviyarasu/.agents/skills/tickets/references/detailed-guide.md`
+- Full Zoho Sprint ticket templates, split rules, and complete examples for Git Mode and Module Mode: `references/detailed-guide.md`

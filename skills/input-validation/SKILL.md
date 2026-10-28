@@ -17,4 +17,4 @@ Treat all external input (`req.params`, `req.query`, `req.body`, headers, webhoo
 4. **File Uploads:** Validate MIME type, file extension, magic bytes, and size limits before processing or storing.
 
 ## Deep Reference (Load On Demand)
-- Detailed Zod patterns, sanitization helpers, and file-upload validation examples: `C:/Users/Kaviyarasu/.agents/skills/input-validation/references/detailed-guide.md`
+- Detailed Zod patterns, sanitization helpers, and file-upload validation examples: `references/detailed-guide.md`

@@ -16,4 +16,4 @@ Produce a deterministic engineering handoff document (default `HANDOFF.md` in re
 6. **Ordered Next Action Plan:** Immediate next step, remaining tasks with file paths, and final verification checklist.
 
 ## Deep Reference (Load On Demand)
-- Full 20-section handoff template, backup/merge rules, and compression checklist: `C:/Users/Kaviyarasu/.agents/skills/context-handoff/references/detailed-guide.md`
+- Full 20-section handoff template, backup/merge rules, and compression checklist: `references/detailed-guide.md`

@@ -14,10 +14,10 @@ Record architectural decisions so future sessions understand *why* a design was 
 
 ## Compact ADR Structure
 1. **Title & Metadata:** `ADR-NNN: Short Decision Title`, Status (`Proposed | Accepted | Superseded`), Date, Context/Modules affected.
-2. **Context & Problem:** Concrete technical constraint or failure mode that forced the decision (2–4 sentences).
+2. **Context & Problem:** Concrete technical constraint or failure mode that forced the decision (2 - 4 sentences).
 3. **Decision:** Exact pattern, rule, and enforcement mechanism adopted.
 4. **Alternatives Rejected:** Bullet list of options considered and why each was rejected.
 5. **Consequences:** Positive outcomes, trade-offs accepted, and migration/maintenance rules.
 
 ## Deep Reference (Load On Demand)
-- Full ADR templates, lifecycle workflows, and examples: `C:/Users/Kaviyarasu/.agents/skills/architecture-decision-records/references/detailed-guide.md`
+- Full ADR templates, lifecycle workflows, and examples: `references/detailed-guide.md`

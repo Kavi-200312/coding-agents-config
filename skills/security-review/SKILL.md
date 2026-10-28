@@ -1,6 +1,6 @@
 ---
 name: security-review
-description: Application and API security review — authentication, RBAC/scope enforcement, SQLi/XSS prevention, input validation, file uploads, CSRF, rate limiting, and secrets.
+description: Application and API security review  -  authentication, RBAC/scope enforcement, SQLi/XSS prevention, input validation, file uploads, CSRF, rate limiting, and secrets.
 ---
 
 # Security Review & Hardening
@@ -17,5 +17,5 @@ Apply proactively when writing or reviewing auth, RBAC, new API routes, file upl
 5. **Secrets & Error Hygiene:** Zero hardcoded credentials; validate env vars at startup; never leak stack traces, internal IDs, or tokens in logs or error responses.
 
 ## Deep Reference (Load On Demand)
-- Full OWASP application security guide: `C:/Users/Kaviyarasu/.agents/skills/security-review/references/detailed-guide.md`
-- Cloud & infrastructure security checklist: `C:/Users/Kaviyarasu/.agents/skills/security-review/references/cloud-infrastructure-security.md`
+- Full OWASP application security guide: `references/detailed-guide.md`
+- Cloud & infrastructure security checklist: `references/cloud-infrastructure-security.md`

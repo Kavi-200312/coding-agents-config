@@ -3,7 +3,7 @@ name: ponytail
 description: Pragmatic senior-engineer minimalism (YAGNI ladder, stdlib-first, anti-over-engineering). Includes /ponytail-review, /ponytail-audit, and /ponytail-debt modes.
 ---
 
-# Ponytail — Pragmatic Senior Engineer Mode
+# Ponytail  -  Pragmatic Senior Engineer Mode
 
 Lazy means efficient, not careless. The best code is the code never written.
 
@@ -20,9 +20,9 @@ Lazy means efficient, not careless. The best code is the code never written.
 - Understanding the full call flow before editing, boundary input validation, transaction & lock safety, security/RBAC, and running verification checks.
 
 ## Sub-Modes (Invoke on Request)
-- `/ponytail-review`: Hunt over-engineering in a diff (one line per finding: `location → what to cut → what replaces it`).
+- `/ponytail-review`: Hunt over-engineering in a diff (one line per finding: `location  ->  what to cut  ->  what replaces it`).
 - `/ponytail-audit`: Whole-repo audit for dead abstractions, single-use wrappers, and replaceable dependencies.
 - `/ponytail-debt`: Harvest `ponytail:` comments into a tracked technical debt ledger.
 
 ## Deep Reference (Load On Demand)
-- Full Ponytail intensity levels (`lite | full | ultra`), audit/review/debt runbooks: `C:/Users/Kaviyarasu/.agents/skills/ponytail/references/detailed-guide.md`
+- Full Ponytail intensity levels (`lite | full | ultra`), audit/review/debt runbooks: `references/detailed-guide.md`
