@@ -37,3 +37,8 @@
 ## 5. Verification & Completion Gate
 - **Evidence Before Assertions:** Never claim a task is complete, fixed, or passing without executing the verification command (`npm run build`, `npm test`, or typecheck) and inspecting the output (`verification-before-completion`).
 - **Diff Self-Review:** Inspect `git diff` before committing (`requesting-code-review`) to verify zero slop, no unused imports, and no broken abstractions.
+
+## 6. Skills: Mandatory Reference Loading
+- **Read the whole skill before acting.** When a skill is invoked, read its full `SKILL.md` AND every file it links under "Deep Reference", "Load On Demand", `references/`, or similar progressive-disclosure sections BEFORE producing any output or taking any action.
+- **No acting on the header alone.** The `SKILL.md` summary is a table of contents, not the procedure. If a referenced file defines the workflow (approval gates, file outputs, publish rules), that workflow is mandatory.
+- **Apply to every skill** — project, global, and plugin — whenever its content clearly matches the task.

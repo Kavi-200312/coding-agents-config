@@ -19,5 +19,5 @@ Create crisp, manager- and QA-readable Zoho Sprint tickets grounded in actual co
 - Include **Story Points** with a 1-line justification by default. Omit Branch/Commit/PR lines unless explicitly requested.
 - Include concrete **QA Verification Scenarios** (happy path, validation failures, permission/scope checks, edge cases).
 
-## Deep Reference (Load On Demand)
-- Full Zoho Sprint ticket templates, split rules, and complete examples for Git Mode and Module Mode: `references/detailed-guide.md`
+## Deep Reference (REQUIRED — read before any ticket work)
+- You MUST read `references/detailed-guide.md` before proposing splits, writing ticket files, or pushing to Zoho. It defines the mandatory workflow: propose split → wait for approval → write `.md` files under `tickets/` → publish only on explicit user request.
