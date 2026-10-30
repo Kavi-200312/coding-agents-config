@@ -257,7 +257,7 @@ function syncSingleLink(toolKey, linkSpec, backupSessionRoot, { filesOnly = fals
     }
   }
 
-  // Case 2: Whole Directory Junction / Symlink (skills/ or agents/)
+  // Case 2: Whole Directory Junction / Symlink (e.g. skills/)
   if (linkSpec.type === 'directory') {
     const current = inspectSingleLink(linkSpec);
     if (current.state === 'LINKED_JUNCTION') {

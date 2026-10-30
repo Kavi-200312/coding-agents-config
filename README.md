@@ -1,6 +1,6 @@
 # Unified AI Agent SSOT Hub (`~/.agents`)
 
-Single Source of Truth (SSOT) for global instructions, progressive-disclosure skills, and subagent profiles across **Antigravity**, **Devin**, **Codex**, and **Claude Code**.
+Single Source of Truth (SSOT) for global engineering standards and progressive-disclosure skills across **Antigravity**, **Devin**, **Codex**, and **Claude Code**.
 
 ## Quick Start on Any New Machine
 
@@ -22,57 +22,57 @@ The agent will inspect your machine, ask which tool(s) you want to link (e.g. `d
 
 ---
 
-## Architecture
+## Architecture (Skills-First)
+
+All separate subagent profiles have been retired in favor of high-signal, progressive-disclosure **skills** and unified global instructions in [`AGENTS.md`](./AGENTS.md).
 
 ```text
 ~/.agents/
-â”œâ”€â”€ AGENTS.md                 # Canonical Global Instructions (hardlinked to all tools)
-â”œâ”€â”€ BOOTSTRAP.md              # AI-Agent interactive setup playbook for new machines
-â”œâ”€â”€ agents.manifest.json      # Future-proof OS path registry (win32 / darwin / linux)
-â”œâ”€â”€ sync.mjs                  # Zero-dependency CLI & interactive backup/link engine
-â”œâ”€â”€ README.md                 # Hub architecture & synchronization guide
-â”œâ”€â”€ .gitignore                # Excludes local backup archives (_archive/)
-â”œâ”€â”€ skills/                   # 21 Progressive-Disclosure Skills (SKILL.md + references/)
-â”‚   â”œâ”€â”€ api-design/
-â”‚   â”œâ”€â”€ api-tester/
-â”‚   â”œâ”€â”€ architecture-decision-records/
-â”‚   â”œâ”€â”€ backend-patterns/
-â”‚   â”œâ”€â”€ caveman/
-â”‚   â”œâ”€â”€ code-review/
-â”‚   â”œâ”€â”€ context-handoff/
-â”‚   â”œâ”€â”€ database-patterns/
-â”‚   â”œâ”€â”€ documentation-lookup/
-â”‚   â”œâ”€â”€ error-handling/
-â”‚   â”œâ”€â”€ frontend-patterns/
-â”‚   â”œâ”€â”€ git-workflow/
-â”‚   â”œâ”€â”€ implementer/
-â”‚   â”œâ”€â”€ input-validation/
-â”‚   â”œâ”€â”€ logging-observability/
-â”‚   â”œâ”€â”€ orchestrate/
-â”‚   â”œâ”€â”€ ponytail/
-â”‚   â”œâ”€â”€ security-review/
-â”‚   â”œâ”€â”€ senior-planner/
-â”‚   â”œâ”€â”€ tdd-workflow/
-â”‚   â””â”€â”€ tickets/
-â””â”€â”€ agents/                   # 8 Subagent Profiles (4 Core + 4 Conditional Specialists)
-    â”œâ”€â”€ feature-orchestrator/ # Stage 0: Triage & Pipeline Coordinator
-    â”œâ”€â”€ architect/            # Stage 1: Discovery + Planning + Architecture Design
-    â”œâ”€â”€ implementer/          # Stage 2: Production Code + Build Verification
-    â”œâ”€â”€ code-reviewer/        # Stage 3: Correctness + Architecture + Ponytail Review
-    â”œâ”€â”€ security-reviewer/    # Specialist: Auth, RBAC, OWASP Top 10
-    â”œâ”€â”€ tester/               # Specialist: Unit/Integration Tests & Edge Cases
-    â”œâ”€â”€ refactor-cleaner/     # Specialist: Dead Code, DRY, Complexity Reduction
-    â””â”€â”€ doc-updater/          # Specialist: OpenAPI, ADRs, Module Digests
+├── AGENTS.md                 # Canonical Global Engineering Standards (hardlinked to all tools)
+├── BOOTSTRAP.md              # AI-Agent interactive setup playbook for new machines
+├── agents.manifest.json      # Future-proof OS path registry (win32 / darwin / linux)
+├── sync.mjs                  # Zero-dependency CLI & interactive backup/link engine
+├── README.md                 # Hub architecture & synchronization guide
+├── .gitignore                # Excludes local backup archives (_archive/)
+├── .skill-lock.json          # Lockfile tracking upstream skill sources and hashes
+└── skills/                   # 27 Progressive-Disclosure Skills (SKILL.md + references/)
+    ├── api-design/
+    ├── api-tester/
+    ├── architecture-decision-records/
+    ├── backend-patterns/
+    ├── caveman/
+    ├── context-handoff/
+    ├── continuous-learning-v2/
+    ├── daily-update/
+    ├── database-patterns/
+    ├── error-handling/
+    ├── executing-plans/
+    ├── frontend-patterns/
+    ├── git-workflow/
+    ├── grill-me/
+    ├── grilling/
+    ├── input-validation/
+    ├── instruction-audit/
+    ├── logging-observability/
+    ├── ponytail/
+    ├── requesting-code-review/
+    ├── security-review/
+    ├── skill-creator/
+    ├── systematic-debugging/
+    ├── test-driven-development/
+    ├── tickets/
+    ├── verification-before-completion/
+    └── writing-plans/
 ```
 
 ## Cross-Agent Link Topology (Zero Drift)
 
-| Tool | Global Instructions (Hardlink) | Skills (Junction / Symlink) | Subagents (Junction / Symlink) |
-|---|---|---|---|
-| **Antigravity** | `~/.gemini/GEMINI.md` â†’ `~/.agents/AGENTS.md` | `~/.gemini/config/skills` â†’ `~/.agents/skills` | Built-in `invoke_subagent` + `orchestrate` skill |
-| **Devin** | `%APPDATA%\devin\AGENTS.md` â†’ `~/.agents/AGENTS.md` | `%APPDATA%\devin\skills` â†’ `~/.agents/skills` | `%APPDATA%\devin\agents` â†’ `~/.agents/agents` |
-| **Codex** | `~/.codex/AGENTS.md` â†’ `~/.agents/AGENTS.md` | `~/.codex/skills/<skill>` â†’ `~/.agents/skills/<skill>` | Uses `AGENTS.md` + skills |
-| **Claude Code** | `~/.claude/CLAUDE.md` â†’ `~/.agents/AGENTS.md` | `~/.claude/skills` â†’ `~/.agents/skills` | `~/.claude/agents` â†’ `~/.agents/agents` |
+| Tool | Global Instructions (Hardlink) | Skills (Junction / Symlink) |
+|---|---|---|
+| **Antigravity** | `~/.gemini/GEMINI.md` → `~/.agents/AGENTS.md` | `~/.gemini/config/skills` → `~/.agents/skills` |
+| **Devin** | `%APPDATA%\devin\AGENTS.md` → `~/.agents/AGENTS.md` | `%APPDATA%\devin\skills` → `~/.agents/skills` |
+| **Codex** | `~/.codex/AGENTS.md` → `~/.agents/AGENTS.md` | `~/.codex/skills/<skill>` → `~/.agents/skills/<skill>` |
+| **Claude Code** | `~/.claude/CLAUDE.md` → `~/.agents/AGENTS.md` | `~/.claude/skills` → `~/.agents/skills` |
 
 ## What If a Tool Changes Its Path in the Future?
 

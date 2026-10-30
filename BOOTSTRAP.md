@@ -17,7 +17,7 @@ Run the non-destructive status check first:
 ```bash
 node ~/.agents/sync.mjs --status
 ```
-This inspects `agents.manifest.json` and reports which AI tools (`antigravity`, `devin`, `codex`, `claude`) are installed on this OS (`win32`, `darwin`, or `linux`) and whether their `AGENTS.md`/`GEMINI.md`/`CLAUDE.md`, `skills/`, and `agents/` paths are already linked or have existing unlinked files.
+This inspects `agents.manifest.json` and reports which AI tools (`antigravity`, `devin`, `codex`, `claude`) are installed on this OS (`win32`, `darwin`, or `linux`) and whether their `AGENTS.md`/`GEMINI.md`/`CLAUDE.md` and `skills/` paths are already linked or have existing unlinked files.
 
 ### Step 2: Ask the User Which AI Agent(s) to Configure
 - **If the user has NOT already named the target tool(s)** in their prompt, present the detected tools from Step 1 and ask:
@@ -38,7 +38,7 @@ node ~/.agents/sync.mjs --all
 ```
 What `sync.mjs` automatically does:
 1. **Backs up existing non-linked files/folders** from the target tool into `~/.agents/_archive/<YYYY-MM-DD_HHmmss>_sync-backup/<tool>/` so zero prior work is ever lost.
-2. **Creates OS links** (NTFS Hardlinks for `AGENTS.md`/`GEMINI.md`/`CLAUDE.md`; NTFS Directory Junctions on Windows or symlinks on macOS/Linux for `skills/` and `agents/`).
+2. **Creates OS links** (NTFS Hardlinks for `AGENTS.md`/`GEMINI.md`/`CLAUDE.md`; NTFS Directory Junctions on Windows or symlinks on macOS/Linux for `skills/`).
 3. **Installs Git hooks** (`.git/hooks/post-merge` and `post-checkout`) so future `git pull` updates automatically refresh file hardlink inodes.
 
 ### Step 4: Verify & Report
@@ -48,7 +48,7 @@ Confirm from the `sync.mjs` output table that all selected tools show `LINKED (O
 
 ## How to Handle Future Tool Path Changes
 
-If an AI tool changes where it stores global instructions, skills, or subagents in a future version:
+If an AI tool changes where it stores global instructions or skills in a future version:
 1. Open [`agents.manifest.json`](./agents.manifest.json).
 2. Move the old path string into `"legacyTargets": [...]` and update `"target"` with the new path.
 3. Run `node ~/.agents/sync.mjs <tool>` — the script automatically removes the old legacy link, backs up any files at the new location, and links the new path.
