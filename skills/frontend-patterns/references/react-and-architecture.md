@@ -897,8 +897,8 @@ Wrap a component in `React.memo` only when:
 - Every interactive element must be reachable by keyboard
 - Form inputs need labels — `<label htmlFor>` or `aria-label` if visually labeled by an icon
 - Manage focus on route changes and modal open/close
-- Run `axe` in component tests (see [skills/react-testing](../react-testing/SKILL.md))
-- Cross-link: [frontend-a11y](../frontend-a11y/SKILL.md) covers WCAG criteria and pattern libraries
+- Run `axe` in component tests (see [test-driven-development](../../test-driven-development/SKILL.md))
+- Maintain WCAG AA accessibility criteria across all interactive components
 
 ## Routing
 
@@ -912,8 +912,8 @@ This skill is router-agnostic. The patterns above work with React Router, TanSta
 
 ## Related
 
-- Skills: [react-performance](../react-performance/SKILL.md) for the Vercel-derived performance ruleset, [frontend-patterns](../frontend-patterns/SKILL.md) for cross-framework UI concerns, [frontend-a11y](../frontend-a11y/SKILL.md)
-- Agents: `code-reviewer` for code review, `build-error-resolver` for build/bundler errors
+- Skills: [react-performance](./react-performance.md) for the Vercel-derived performance ruleset, [test-driven-development](../../test-driven-development/SKILL.md)
+- Skills: [requesting-code-review](../../requesting-code-review/SKILL.md)
 
 ## Examples
 

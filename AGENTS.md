@@ -13,7 +13,7 @@
 
 ## 3. Anti-Slop Code Quality (10+ Senior Standards)
 - **Reuse First (Search Before Authoring):** Never generate new helper functions, queries, or DTOs without grepping the module and shared directories first. Extend or import existing code.
-- **No God Methods (<60 LOC Cap):** Monolithic functions mixing diffing, validation, persistence, and side effects are banned. Complex workflows must follow a numbered 5-step pipeline:
+- **No God Methods (<60 LOC Orchestration Cap):** Monolithic functions mixing diffing, validation, persistence, and side effects are banned. Cap complex orchestration functions at ~60 LOC (do not artificially fragment cohesive, single-concern functions purely to satisfy line limits). State-mutating multi-entity database workflows must follow a numbered 5-step pipeline (single reads/queries remain single-step):
   ```typescript
   // Step 1: Detect changed records (diff against locked rows)
   // Step 2: Validate business and domain references
@@ -38,7 +38,8 @@
 - **Evidence Before Assertions:** Never claim a task is complete, fixed, or passing without executing the verification command (`npm run build`, `npm test`, or typecheck) and inspecting the output (`verification-before-completion`).
 - **Diff Self-Review:** Inspect `git diff` before committing (`requesting-code-review`) to verify zero slop, no unused imports, and no broken abstractions.
 
-## 6. Skills: Mandatory Reference Loading
-- **Read the whole skill before acting.** When a skill is invoked, read its full `SKILL.md` AND every file it links under "Deep Reference", "Load On Demand", `references/`, or similar progressive-disclosure sections BEFORE producing any output or taking any action.
-- **No acting on the header alone.** The `SKILL.md` summary is a table of contents, not the procedure. If a referenced file defines the workflow (approval gates, file outputs, publish rules), that workflow is mandatory.
-- **Apply to every skill** — project, global, and plugin — whenever its content clearly matches the task.
+## 6. Skills: Progressive Disclosure & Workflow Fidelity
+- **Read `SKILL.md` completely first:** When a skill is invoked, read its full `SKILL.md` before taking action. Never act on the description or header alone; execute the documented workflow.
+- **Progressive reference loading:** Load linked deep references (`references/`, checklists, detailed guides) *on demand* when the active task touches that specific topic. Do not unconditionally dump all references into context on simple tasks.
+- **Workflow rules are mandatory:** If `SKILL.md` (or a relevant referenced workflow file) defines approval gates, file formats, verification steps, or safety pauses, follow them strictly.
+- **Apply to every skill** — project, global, and plugin — whenever its domain matches the task.
